@@ -1,0 +1,25 @@
+# Virtual Environment
+venv/
+venv2/
+env/
+ENV/
+
+# .vscode
+.vscode/
+
+# IDE files
+*.iml
+*.pyc
+
+# PyCharm files
+.idea/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# IPython
+__pycache__/
+
+# Vagrant
+/.vagrant/
+.vagrant/
