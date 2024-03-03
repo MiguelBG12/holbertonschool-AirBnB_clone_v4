@@ -243,3 +243,7 @@ def places_search():
             if all(amenity_id in place.amenities for amenity_id in amenities):
                 filtered_places.append(place)
         places = filtered_places
+
+    # Convert Place objects to dictionaries and return as JSON response
+    places_data = [place.to_dict() for place in places]
+    return jsonify(places_data)
