@@ -226,3 +226,13 @@ def places_search():
     # If 'states' and 'cities' are both provided, remove duplicates from 'cities'
     cities = [city_id for city_id in cities if city_id not in states]
 
+    # Include Place objects related to each City in every State listed in 'states',
+    # plus every City listed individually in 'cities'
+    for state_id in states:
+        state = storage.get(State, state_id)
+        if state:
+            for city in state.cities:
+                for place in city.places:
+                    if place not in places:
+                        places.append(place)
+
