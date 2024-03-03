@@ -198,4 +198,8 @@ def places_search():
     cities = data.get('cities', [])
     amenities = data.get('amenities', [])
 
-    
+    # If JSON body is empty or all lists of keys are empty, retrieve all Place objects
+    if not any([states, cities, amenities]):
+        places = [place.to_dict() for place in storage.all(Place).values()]
+        return jsonify(places)
+
