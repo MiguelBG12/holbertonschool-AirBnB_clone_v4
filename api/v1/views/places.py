@@ -203,3 +203,5 @@ def places_search():
         places = [place.to_dict() for place in storage.all(Place).values()]
         return jsonify(places)
 
+    # Retrieve places based on search rules
+    places = []
