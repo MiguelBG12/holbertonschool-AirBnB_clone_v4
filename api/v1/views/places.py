@@ -236,3 +236,10 @@ def places_search():
                     if place not in places:
                         places.append(place)
 
+    # If 'amenities' list is not empty, filter Place objects by listed Amenity ids
+    if amenities:
+        filtered_places = []
+        for place in places:
+            if all(amenity_id in place.amenities for amenity_id in amenities):
+                filtered_places.append(place)
+        places = filtered_places
