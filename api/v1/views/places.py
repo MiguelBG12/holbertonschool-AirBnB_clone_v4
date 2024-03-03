@@ -178,3 +178,14 @@ def places_search():
         places.append(d)
 
     return jsonify(places)
+
+
+@app_views.route('/places_search', methods=['POST'], strict_slashes=False)
+def places_search():
+    """
+    Retrieves all Place objects depending on the JSON in the body of the request
+    """
+
+    # Check if request body is valid JSON
+    if not request.is_json:
+        return jsonify({"error": "Not a JSON"}), 400
