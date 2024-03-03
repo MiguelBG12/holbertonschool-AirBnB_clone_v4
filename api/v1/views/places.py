@@ -222,3 +222,7 @@ def places_search():
             for place in city.places:
                 if place not in places:
                     places.append(place)
+
+    # If 'states' and 'cities' are both provided, remove duplicates from 'cities'
+    cities = [city_id for city_id in cities if city_id not in states]
+
