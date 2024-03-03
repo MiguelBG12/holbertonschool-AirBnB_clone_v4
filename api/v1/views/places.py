@@ -192,3 +192,10 @@ def places_search():
 
     # Parse JSON data from request body
     data = request.get_json()
+
+    # Retrieve optional keys from JSON data
+    states = data.get('states', [])
+    cities = data.get('cities', [])
+    amenities = data.get('amenities', [])
+
+    
