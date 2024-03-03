@@ -214,3 +214,11 @@ def places_search():
                 for place in city.places:
                     if place not in places:
                         places.append(place)
+
+    # If 'cities' list is not empty, include Place objects for each City id listed
+    for city_id in cities:
+        city = storage.get(City, city_id)
+        if city:
+            for place in city.places:
+                if place not in places:
+                    places.append(place)
