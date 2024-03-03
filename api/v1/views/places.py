@@ -189,3 +189,6 @@ def places_search():
     # Check if request body is valid JSON
     if not request.is_json:
         return jsonify({"error": "Not a JSON"}), 400
+
+    # Parse JSON data from request body
+    data = request.get_json()
