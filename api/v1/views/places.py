@@ -205,3 +205,12 @@ def places_search():
 
     # Retrieve places based on search rules
     places = []
+
+    # If 'states' list is not empty, include Place objects for each State id listed
+    for state_id in states:
+        state = storage.get(State, state_id)
+        if state:
+            for city in state.cities:
+                for place in city.places:
+                    if place not in places:
+                        places.append(place)
